@@ -1,4 +1,4 @@
-const handleProfile = (db) => (req,res) => {
+const handleProfile = (req,res,db) => {
     // req.params: returns url parameters. Use ':id' in get() url to access the parameters
     const {id} = req.params;
     db.select('*').from('users').where({id}) // id property and value is the same
