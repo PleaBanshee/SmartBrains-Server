@@ -10,6 +10,7 @@ const image = require('./controllers/image.js');
 
 const PORT = process.env.PORT; // environment variable which defines which port the server will be listening to
 const app = express();
+console.log(PORT);
 // use this code so you can parse responses into the correct format
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
@@ -19,7 +20,7 @@ app.use(cors());
 const db = knex({
     client: 'pg', // database is PostgreSQL
     connection: {
-      host : '127.0.0.1', // this port is localhost
+      host : '127.0.0.1', // this port is home
       user : 'Llewellyn',
       password : 'Postgres12#$',
       database : 'SmartBrains'
@@ -28,7 +29,7 @@ const db = knex({
 
 // Default route
 app.get('/',(req,res) => {
-    res.json("Connected to server: port 3001");
+    res.json(`Connected to server: port ${PORT}`);
 });
 
 // Sign In route
@@ -46,6 +47,6 @@ app.post('/imageurl',(req,res) => image.handleApiCall(req,res));
 // Increase user rank when submitting images
 app.put('/Image', images.handleImages(db)); // PUT --- updates content
 
-app.listen(PORT,() => { // run the backend and frontend on respective ports
+app.listen(PORT || 3000,() => { // run the backend and frontend on respective ports, connect to port 3000 if other Port is not available
     console.log(`SmartBrains is running on port ${PORT}`);
 });
