@@ -1,4 +1,4 @@
-const handleRegister = (db,bcrypt) => (req,res) => {
+const handleRegister = (req,res,db,bcrypt) => {
     let hashed = '';
     const {email, name, password} = req.body;
     // NB! Server and client should do error handling respectively

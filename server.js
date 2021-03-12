@@ -35,10 +35,10 @@ app.get('/',(req,res) => {
 app.post('/signIn', signIn.handleSignIn(db,bcrypt)); // receives req and res in js file
 
 // Register route
-app.post('/Register', register.handleRegister(db,bcrypt)); // dependency injection: passing required objects so we don't need to import them
+app.post('/Register',(req,res) => register.handleRegister(req,res,db,bcrypt)); // dependency injection: passing required objects so we don't need to import them
 
 // Gets a user profile
-app.get('/Profile/:id', profile.handleProfile(db));
+app.get('/Profile/:id', (req,res) => profile.handleProfile(req,res,db));
 
 // API call route
 app.post('/imageurl',(req,res) => image.handleApiCall(req,res));
