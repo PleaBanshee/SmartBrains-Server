@@ -7,8 +7,9 @@ const signIn = require('./controllers/signIn.js'); // signin route
 const profile = require('./controllers/profile.js'); // profile route
 const images = require('./controllers/image.js'); // updating entries
 const image = require('./controllers/image.js');
+require('dotenv').config();
 
-const PORT = process.env.PORT; // environment variable which defines which port the server will be listening to
+const PORT = process.env.PORT; // variable which defines which port the server will be listening to
 const app = express();
 console.log(PORT);
 // use this code so you can parse responses into the correct format
@@ -20,7 +21,7 @@ app.use(cors());
 const db = knex({
     client: 'pg', // database is PostgreSQL
     connection: {
-      host : '127.0.0.1', // this port is home
+      host : 'postgresql-trapezoidal-30123', // server url
       user : 'Llewellyn',
       password : 'Postgres12#$',
       database : 'SmartBrains'
@@ -47,6 +48,6 @@ app.post('/imageurl',(req,res) => image.handleApiCall(req,res));
 // Increase user rank when submitting images
 app.put('/Image', images.handleImages(db)); // PUT --- updates content
 
-app.listen(PORT || 3000,() => { // run the backend and frontend on respective ports, connect to port 3000 if other Port is not available
+app.listen(PORT || 3001,() => { // run the backend and frontend on respective ports, connect to port 3001 if other Port is not available
     console.log(`SmartBrains is running on port ${PORT}`);
 });
