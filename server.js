@@ -19,7 +19,7 @@ app.use(cors());
 const db = knex({
     client: 'pg', // database is PostgreSQL
     connection: {
-      host : '127.0.0.1', // this port is localhost
+      host : '127.0.0.1', // this port is home
       user : 'Llewellyn',
       password : 'Postgres12#$',
       database : 'SmartBrains'
