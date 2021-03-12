@@ -21,9 +21,8 @@ app.use(cors());
 const db = knex({
     client: 'pg', // database is PostgreSQL
     connection: {
-      host : process.env.DATABASE_URL, // server url
+      connectionString : process.env.DATABASE_URL, // server url
       ssl: true
-      
     }
 });
 
