@@ -28,7 +28,7 @@ const db = knex({
 
 // Default route
 app.get('/',(req,res) => {
-    res.json(`Connected to server: port ${PORT}`);
+    res.json(db.users);
 });
 
 // Sign In route
