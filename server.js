@@ -11,7 +11,6 @@ require('dotenv').config();
 
 const PORT = process.env.PORT; // variable which defines which port the server will be listening to
 const app = express();
-console.log(PORT);
 // use this code so you can parse responses into the correct format
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
