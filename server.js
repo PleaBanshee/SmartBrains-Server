@@ -6,7 +6,6 @@ const register = require('./controllers/register.js'); // register route
 const signIn = require('./controllers/signIn.js'); // signin route
 const profile = require('./controllers/profile.js'); // profile route
 const images = require('./controllers/image.js'); // updating entries
-const image = require('./controllers/image.js');
 require('dotenv').config();
 
 const PORT = process.env.PORT; // variable which defines which port the server will be listening to
@@ -40,10 +39,10 @@ app.post('/Register',(req,res) => register.handleRegister(req,res,db,bcrypt)); /
 app.get('/Profile/:id', (req,res) => profile.handleProfile(req,res,db));
 
 // API call route
-app.post('/imageurl',(req,res) => image.handleApiCall(req,res));
+app.post('/imageurl',(req,res) => images.handleApiCall(req,res));
 
 // Increase user rank when submitting images
-app.put('/Image', images.handleImages(db)); // PUT --- updates content
+app.put('/Image', (req,res) => images.handleImages(req,res,db)); // PUT --- updates content
 
 app.listen(PORT || 3001,() => { // run the backend and frontend on respective ports, connect to port 3001 if other Port is not available
     console.log(`SmartBrains is running on port ${PORT}`);

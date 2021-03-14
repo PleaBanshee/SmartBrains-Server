@@ -13,7 +13,7 @@ const handleApiCall = (req,res) => {
     .catch(err => res.status(400).json('Failed to upload image'));
 }
 
-const handleImages = (db) => (req,res) => {
+const handleImages = (req,res,db) => {
     const {id} = req.body;
     db('users').where('id','=',id).increment('entries',1) // increment knex function 
     .returning('entries')
