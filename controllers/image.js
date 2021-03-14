@@ -2,7 +2,7 @@ const Clarifai = require('clarifai');
 
 // store API keys on server, more secure this way. API keys won't display in the network tab in Devtools
 const app = new Clarifai.App({
-    apiKey: '207fdd68775946a1b22ed5c6221c1bcd'
+    apiKey: process.env.API_KEY // set up in Heroku config variables
 });
 
 const handleApiCall = (req,res) => {
