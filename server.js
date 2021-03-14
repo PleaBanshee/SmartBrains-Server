@@ -22,8 +22,8 @@ const db = knex({
       connectionString : process.env.DATABASE_URL, // server url
       ssl: {
           rejectUnauthorized: false, // Windows only
-      }
-    }
+      },
+    },
 });
 
 // console.log(db.connection.connectionString);
