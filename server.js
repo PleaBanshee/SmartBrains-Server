@@ -24,6 +24,8 @@ const db = knex({
     }
 });
 
+// console.log(db.connection.connectionString);
+
 // Default route
 app.get('/',(req,res) => {
     res.json(db.users);
