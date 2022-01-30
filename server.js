@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cors());
 
-// Datbase configuration
+// Database configuration
 const db = knex({
     client: 'pg', // database is PostgreSQL
     connection: {
