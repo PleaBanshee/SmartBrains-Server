@@ -1,4 +1,5 @@
 const Clarifai = require('clarifai');
+require('dotenv').config();
 
 // store API keys on server, more secure this way. API keys won't display in the network tab in Devtools
 const app = new Clarifai.App({
