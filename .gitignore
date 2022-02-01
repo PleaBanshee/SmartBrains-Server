@@ -25,3 +25,4 @@ yarn-error.log*
 
 # yml 
 .yml
+/docker-compose.yml
