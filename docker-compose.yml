@@ -1,0 +1,12 @@
+version: '3.8'  # version of docker compose
+
+services: # all services running on the containers
+  smart-brains-api: 
+    container_name: backend
+    # image: node:16.13.2 # provided image
+    build: ./ # build from Dockerfile
+    command: npm start
+    working_dir: /usr/src/SmartBrains-Server # working directory
+    ports:  # ports to run containers on
+      - "16924:16924"
+    

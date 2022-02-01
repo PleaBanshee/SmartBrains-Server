@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt-nodejs'); // use this package to hash passwords
 const cors = require('cors'); // allows restricted resources to be shared and requested accross the web
 const knex = require('knex'); // allows you to build sql queries
+const morgan = require('morgan'); // for logging purposes
 const register = require('./controllers/register.js'); // register route
 const signIn = require('./controllers/signIn.js'); // signin route
 const profile = require('./controllers/profile.js'); // profile route
@@ -14,6 +15,7 @@ const app = express();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cors());
+app.use(morgan('combined'))
 
 // Database configuration
 const db = knex({
