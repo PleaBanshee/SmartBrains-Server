@@ -19,10 +19,12 @@ app.use(cors());
 const db = knex({
     client: 'pg', // database is PostgreSQL
     connection: {
-      connectionString : process.env.DATABASE_URL, // server url
-      ssl: {
-          rejectUnauthorized: false, // Windows only
-      },
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        database: process.env.DB_NAME,
+        password: process.env.DB_PASSWORD,
+        port: process.env.DB_PORT,
+        ssl: true,
     },
 });
 
